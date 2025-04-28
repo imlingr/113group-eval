@@ -1,5 +1,5 @@
 /* ------------ 常量 ------------ */
-const endpoint = "https://script.google.com/macros/s/AKfycbxyuNBOgCLjiIRz6Z-CYxHKOa1GUlqnlmVCZC16ULuoB2xQ7c7FBxhm1nTmmdxJapqpRA/exec";
+const endpoint = "https://script.google.com/macros/s/AKfycbxZOoIEQUOWhvff16SJJrGFX7m7Jb5dFpdXneBnCEbnmh60SPS7K6CMNJvVG7ABiMX7ZQ/exec";
 
 /* 班級 → 組別＆名單 */
 const DB = {
