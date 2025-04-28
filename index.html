@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>😎113職業訪談-自評＆互評表</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/style.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+  <!-- 背景圖 -->
+  <div id="bg"></div>
+
+  <div class="container py-4" id="cardBox">
+    <!-- 表頭圖片 -->
+    <img src="https://lh3.googleusercontent.com/pw/AP1GczNXDp3p02uknh_-hoyMzneujGrAXG210XUd_rkskHpWdXauH3OJ8jK_14rEwYzcG5h8u3J_X2FBTgVdhDcO4tdJe_BbDE7uFLgGeQIAN2lvsKx4lMaYjSPfSf1jR3Sam6gVROPTq9Afd10tIWMlW86l=w1920-h480-s-no-gm?authuser=0" class="img-fluid rounded shadow-sm mb-3" alt="banner">
+
+    <h1 class="text-center mb-4">😎113 職業訪談<br><small class="text-muted">自評 ＆ 互評表</small></h1>
+
+    <form id="evalForm">
+      <!-- step 1 選班級 -->
+      <div class="step" data-step="1">
+        <h4 class="mb-3">1️⃣ 請先選擇班級</h4>
+        <div class="row text-center">
+          <div class="col-6">
+            <input type="radio" id="c809" name="class" value="809" required>
+            <label for="c809" class="classCard">
+              <img src="https://cdn-icons-png.flaticon.com/128/13562/13562989.png" alt="809">
+              <div>809</div>
+            </label>
+          </div>
+          <div class="col-6">
+            <input type="radio" id="c818" name="class" value="818" required>
+            <label for="c818" class="classCard">
+              <img src="https://cdn-icons-png.flaticon.com/128/13562/13562979.png" alt="818">
+              <div>818</div>
+            </label>
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-end mt-4">
+          <button type="button" class="btn btn-primary nextBtn">下一步 ➡️</button>
+        </div>
+      </div>
+
+      <!-- step 2 選組別 -->
+      <div class="step d-none" data-step="2">
+        <h4 class="mb-3">2️⃣ 請選擇組別</h4>
+        <div id="groupBox" class="row gy-2"></div>
+
+        <div class="d-flex justify-content-between mt-4">
+          <button type="button" class="btn btn-secondary prevBtn">⬅️ 上一步</button>
+          <button type="button" class="btn btn-primary nextBtn">下一步 ➡️</button>
+        </div>
+      </div>
+
+      <!-- step 3 自評 -->
+      <div class="step d-none" data-step="3">
+        <h4 class="mb-3">3️⃣ 【自評】</h4>
+        <div class="mb-3">
+          <label class="form-label">👤 請選擇「你自己」是哪一位？</label>
+          <select class="form-select" id="selfMember" required></select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">🔧 我在此次訪談負責的工作（可複選）</label>
+          <div id="selfWorks" class="row gy-1"></div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">💪 我投入的程度（可複選，或自行填寫）</label>
+          <div id="selfEfforts" class="row gy-1"></div>
+          <input type="text" class="form-control mt-2" id="selfEffortExtra" placeholder="其他說明… (選填)">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">📊 給自己幾分？ <span id="selfScoreShow">5</span>/10</label>
+          <input type="range" class="form-range" min="1" max="10" value="5" id="selfScore">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">✏️ 整體自評</label>
+          <textarea class="form-control" id="selfComment" rows="3" required></textarea>
+        </div>
+
+        <div class="d-flex justify-content-between mt-4">
+          <button type="button" class="btn btn-secondary prevBtn">⬅️ 上一步</button>
+          <button type="button" class="btn btn-primary nextBtn">開始互評 ➡️</button>
+        </div>
+      </div>
+
+      <!-- step 4~7 互評（最多四位） -->
+      <div class="step d-none" data-step="4">
+        <h4 class="mb-3">4️⃣ 【互評 <span id="peerIdx">1</span>/4】</h4>
+
+        <div class="mb-3">
+          <label class="form-label">👥 請選擇要評的組員</label>
+          <select class="form-select" id="peerMember" required></select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">🔍 他/她負責的工作（可複選）</label>
+          <div id="peerWorks" class="row gy-1"></div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">📈 我給他的分數 <span id="peerScoreShow">5</span>/10</label>
+          <input type="range" class="form-range" min="1" max="10" value="5" id="peerScore">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">🖋️ 給他/她這個分數的理由</label>
+          <textarea class="form-control" id="peerComment" rows="3" required></textarea>
+        </div>
+
+        <div class="d-flex justify-content-between mt-4">
+          <button type="button" class="btn btn-secondary prevBtn">⬅️ 上一步</button>
+          <button type="button" class="btn btn-primary" id="savePeer">儲存本位 ➕ 下一位</button>
+        </div>
+      </div>
+
+      <!-- step 8 確認送出 -->
+      <div class="step d-none" data-step="8">
+        <h4 class="mb-3">✅ 最後確認</h4>
+        <p>請再次檢查；若要修改請按「返回修正」。</p>
+        <div id="previewBox" class="border rounded p-3 bg-white"></div>
+
+        <div class="d-flex justify-content-between mt-4">
+          <button type="button" class="btn btn-secondary prevBtn">⬅️ 返回修正</button>
+          <button type="submit" class="btn btn-success">送出表單 🚀</button>
+        </div>
+      </div>
+    </form>
+
+    <!-- 完成訊息 -->
+    <div id="finishBox" class="alert alert-success d-none mt-4">
+      🥳 已成功送出，感謝你的填寫！
+    </div>
+  </div>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>
