@@ -1,0 +1,33 @@
+/* 背景 */
+#bg{
+  position:fixed;inset:0;
+  background:url(https://cdn02.pinkoi.com/wp-content/uploads/sites/7/2023/08/23152124/3-8.webp) center/cover;
+  z-index:-1;filter:blur(6px) brightness(.9);
+}
+/* 內容卡片 */
+#cardBox{
+  background:rgba(255,255,255,.85);
+  border-radius:12px;
+  box-shadow:0 0 12px rgba(0,0,0,.2);
+}
+/* 步驟隱藏用 .d-none */
+
+/* 班級方塊 */
+.classCard{
+  display:flex;flex-direction:column;align-items:center;
+  border:2px solid #999;border-radius:12px;padding:10px;cursor:pointer;
+  transition:.2s;
+}
+.classCard img{width:64px;height:64px}
+input[type=radio]:checked + .classCard{
+  border-color:#0d6efd;
+  background:#e7f1ff;
+}
+/* checkbox、radio 排版 */
+.chkItem{
+  display:flex;align-items:center;gap:6px;
+}
+.chkItem input{width:18px;height:18px}
+
+/* 已評顏色 */
+option.evaluated{color:#999}
