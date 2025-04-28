@@ -1,33 +1,52 @@
-/* 背景 */
-#bg{
-  position:fixed;inset:0;
-  background:url(https://cdn02.pinkoi.com/wp-content/uploads/sites/7/2023/08/23152124/3-8.webp) center/cover;
-  z-index:-1;filter:blur(6px) brightness(.9);
+/* 全局 --------------------------------------------------- */
+body{
+  font-family:'Noto Sans TC',sans-serif;
+  margin:0 auto;
+  max-width:800px;
+  padding:20px;
+  background:url('https://cdn02.pinkoi.com/wp-content/uploads/sites/7/2023/08/23152124/3-8.webp') center/cover fixed;
+  color:#222;
 }
-/* 內容卡片 */
-#cardBox{
-  background:rgba(255,255,255,.85);
-  border-radius:12px;
-  box-shadow:0 0 12px rgba(0,0,0,.2);
-}
-/* 步驟隱藏用 .d-none */
+h2{margin-top:0;text-align:center;}
+.hidden{display:none;}
+#banner{width:100%;border-radius:10px;margin-bottom:20px}
 
-/* 班級方塊 */
-.classCard{
-  display:flex;flex-direction:column;align-items:center;
-  border:2px solid #999;border-radius:12px;padding:10px;cursor:pointer;
-  transition:.2s;
-}
-.classCard img{width:64px;height:64px}
-input[type=radio]:checked + .classCard{
-  border-color:#0d6efd;
-  background:#e7f1ff;
-}
-/* checkbox、radio 排版 */
-.chkItem{
-  display:flex;align-items:center;gap:6px;
-}
-.chkItem input{width:18px;height:18px}
+/* 題目 --------------------------------------------------- */
+.question{font-weight:700;font-size:1.15rem;margin:1.2em 0 0.3em}
 
-/* 已評顏色 */
-option.evaluated{color:#999}
+/* 卡片式班級選擇 ----------------------------------------- */
+.card-select{
+  display:flex;justify-content:center;gap:40px;margin:30px 0
+}
+.card-select label{
+  display:flex;flex-direction:column;align-items:center;cursor:pointer
+}
+.card-select img{width:120px;height:120px}
+.card-select span{margin-top:6px;font-size:1.1rem}
+.card-select input{display:none}
+.card-select input:checked+img{outline:5px solid #00b0ff;border-radius:10px}
+
+/* 組別、人員清單 ---------------------------------------- */
+#groupArea button,#meList li,#peerList li{
+  display:inline-block;margin:10px;padding:10px 16px;border:1px solid #555;
+  border-radius:6px;cursor:pointer;background:#fff;min-width:60px;text-align:center
+}
+.selected{background:#00c853;color:#fff;border-color:#00c853}
+.done{color:#999;font-size:0.9rem;margin-left:4px}
+
+/* checkbox / radio 列表 ---------------------------------- */
+.check-list label{display:inline-block;margin:6px 10px}
+.check-list input[type="checkbox"]{transform:scale(1.2);margin-right:4px}
+
+/* ①…⑩ 量表 ---------------------------------------------- */
+.scale label{margin:0 5px;cursor:pointer}
+.scale input{display:none}
+.scale .circle{font-size:1.35rem}
+.scale input:checked+.circle{color:#e91e63}
+
+/* 按鈕 --------------------------------------------------- */
+button{
+  padding:10px 26px;font-size:1rem;border:none;border-radius:6px;
+  background:#2196f3;color:#fff;cursor:pointer;margin:30px 6px 0
+}
+button:disabled{opacity:.4;cursor:not-allowed}
